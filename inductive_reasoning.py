@@ -59,7 +59,7 @@ def order_icl_example_by_similarity(data, icl_example=icl_example):
     describe_embedding_surrounding = get_embedding(surrounding_text)
     describe_embedding_whole = get_embedding(data['sentence'])
     icl_example_similarities = sorted([
-        (vector_similarity(describe_embedding_surrounding, icl['surrounding']) + vector_similarity(describe_embedding_whole, icl['whole']), jaccard_similarity(data, icl), icl) for icl in icl_example if data['sentence'] != icl['sentence']
+        (vector_similarity(describe_embedding_surrounding, icl['surrounding']) + vector_similarity(describe_embedding_whole, icl['whole']), jaccard_similarity(data, icl), icl) for icl in icl_example
     ], reverse=True, key=lambda x: x[0])
     return icl_example_similarities
 
