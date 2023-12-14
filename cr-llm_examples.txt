@@ -1,0 +1,52 @@
+[
+  {
+    "sentence": "I Killed the Count is a 1939 British , black-and-white , comedy , crime , mystery film , directed by Frederic Zelnik and starring Ronald Shiner as Mullet , Ben Lyon , Syd Walker , Terence de Marney , Barbara Blair and [entity] .",
+    "reference concept": "person",
+    "entity": "Athole Stewart"
+  },
+  {
+    "sentence": "Played throughout the Winter Music Conference by DJ 's Roger Sanchez , DJ Dan , and [entity] among a few .",
+    "reference concept": "artist",
+    "entity": "Erick Morillo"
+  },
+  {
+    "sentence": "Amend made a television appearance on [entity] , which aired October 20 , 2003 on the former TechTV .",
+    "reference concept": "broadcast_program",
+    "entity": "The Screen Savers"
+  },
+  {
+    "sentence": "Emumae is a village in [entity] , Laane-Viru County , in northeastern Estonia .",
+    "reference concept": "location",
+    "entity": "Rakke Parish"
+  }，
+  {
+    "sentence": "Eugene O'Mahoney 1899 Dublin - 21 June 1951 Dublin was an Irish museum curator and entomologist who worked on Coleoptera , Mallophaga and [entity] .",
+    "reference concept": "living_thing",
+    "entity": "Siphonaptera"
+  }，
+  {
+    "sentence": "[entity] lived there in the 1840s and William James was born there in 1842 .",
+    "reference concept": "person",
+    "entity": "Mathew Brady"
+  },
+  {
+    "sentence": "[entity] covers 2720 hectares of rainforest , plenty of which is accessible by walking trails .",
+    "reference concept": "location",
+    "entity": "Springbrook National Park"
+  },
+  {
+    "sentence": "The South African FA proposed entering an all-white team in the 1966 World Cup and an all-black team in the [entity] .",
+    "reference concept": "sports_event",
+    "entity": "1970 World Cup"
+  },
+  {
+    "sentence": "Apart from being on the television screen , Safi has written columns for the [entity] and The News International .",
+    "reference concept": "written_work",
+    "entity": "Daily Jang
+  },
+  {
+    "sentence": "He was also known for lending his voice for 8-Ball in Grand Theft Auto III and [entity] .",
+    "reference concept": "game",
+    "entity": "Grand Theft Auto : Liberty City Stories"
+  }
+]
