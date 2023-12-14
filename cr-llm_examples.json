@@ -23,7 +23,7 @@
     "sentence": "Eugene O'Mahoney 1899 Dublin - 21 June 1951 Dublin was an Irish museum curator and entomologist who worked on Coleoptera , Mallophaga and [entity] .",
     "reference concept": "living_thing",
     "entity": "Siphonaptera"
-  }，
+  },
   {
     "sentence": "[entity] lived there in the 1840s and William James was born there in 1842 .",
     "reference concept": "person",
