@@ -1,48 +1,7 @@
 import json
-import random
-import openai
 from tqdm import tqdm
 import numpy as np
-import os
-
-openai.api_key = 'sk-*'
-EMBEDDING_MODEL = "text-embedding-ada-002"
-GENERATING_MODEL = "gpt-3.5-turbo"
-
-def get_embedding(text: str, model: str=EMBEDDING_MODEL):
-    result = openai.Embedding.create(model=model,input=text)
-    return result["data"][0]["embedding"]
-
-def llm(model_type,instruction,examples,question,model=None,tokenizer=None,stop_words=['\n']):
-    if model_type == 'chatgpt':
-        return chatgpt(instruction,examples,question,stop_words)
-    elif model_type == 'llama':
-        return llama(instruction,examples,question,model,tokenizer,stop_words)
-
-def chatgpt(instruction,examples,question, stop=["\n"]):
-    response = openai.ChatCompletion.create(
-      model=GENERATING_MODEL,
-      messages=[{"role": "system", "content": instruction},
-               {"role": "assistant", "content": examples},
-               {"role": "user", "content": question}],
-      temperature=0,
-      max_tokens=100,
-      top_p=1,
-      frequency_penalty=0.0,
-      presence_penalty=0.0,
-      stop=stop
-    )
-    return response["choices"][0]["message"]["content"]
-
-def llama(instruction,examples,question,model,tokenizer,stop_words=['\n']):
-    text = instruction + examples + question
-    text_token = tokenizer(text, return_tensors="pt")
-    output_ids = model.generate(text_token.input_ids.to(model.device), max_new_tokens=128)
-    ans = tokenizer.batch_decode(output_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-    ans = ans[len(text):]
-    if len(stop_words) > 0:
-        ans = ans[:min([ans.find(w) for w in stop_words if ans.find(w)!=-1] + [len(ans)])]
-    return ans
+from utils import get_embedding, llm
 
 def get_surrounding_text(text, entity):
     texts = text.split(',')
@@ -92,9 +51,6 @@ def jaccard_similarity(data, example_data):
     jaccard_similarity = (left_jaccard_similarity + right_jaccard_similarity)/2
     return jaccard_similarity
 
-with open(icl_example_path, "r", encoding='utf-8') as f:
-    icl_example = list(json.load(f))
-
 def vector_similarity(x, y):
     return np.dot(np.array(x), np.array(y))
 
@@ -106,6 +62,9 @@ def order_icl_example_by_similarity(data, icl_example=icl_example):
         (vector_similarity(describe_embedding_surrounding, icl['surrounding']) + vector_similarity(describe_embedding_whole, icl['whole']), jaccard_similarity(data, icl), icl) for icl in icl_example if data['sentence'] != icl['sentence']
     ], reverse=True, key=lambda x: x[0])
     return icl_example_similarities
+
+with open(icl_example_path, "r", encoding='utf-8') as f:
+    icl_example = list(json.load(f))
 
 def reasoning(data,model_type,model=None,tokenizer=None,icl_example=icl_example,to_print=True):
     icl_example_similarities = order_icl_example_by_similarity(data)
