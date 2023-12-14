@@ -18,7 +18,7 @@
     "sentence": "Emumae is a village in [entity] , Laane-Viru County , in northeastern Estonia .",
     "reference concept": "location",
     "entity": "Rakke Parish"
-  }，
+  },
   {
     "sentence": "Eugene O'Mahoney 1899 Dublin - 21 June 1951 Dublin was an Irish museum curator and entomologist who worked on Coleoptera , Mallophaga and [entity] .",
     "reference concept": "living_thing",
@@ -42,7 +42,7 @@
   {
     "sentence": "Apart from being on the television screen , Safi has written columns for the [entity] and The News International .",
     "reference concept": "written_work",
-    "entity": "Daily Jang
+    "entity": "Daily Jang"
   },
   {
     "sentence": "He was also known for lending his voice for 8-Ball in Grand Theft Auto III and [entity] .",
